@@ -4,7 +4,7 @@ metadata:
   name: prometheus-scaledobject
 spec:
   scaleTargetRef:
-    name: test-app
+    name: test-keda
   minReplicaCount: 1
   maxReplicaCount: 10
   pollingInterval: 5
@@ -13,7 +13,7 @@ spec:
   - type: prometheus
     metadata:
       serverAddress: https://thanos-querier.openshift-monitoring.svc.cluster.local:9092
-      namespace: <NAMESPACE>                         # replace <NAMESPACE>
+      namespace: test-keda                        # replace <NAMESPACE>
       metricName: http_requests_total
       threshold: '5'
       query: sum(rate(http_requests_total{job="test-app"}[1m]))
