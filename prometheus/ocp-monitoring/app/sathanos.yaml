@@ -1,4 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-  name: thanos
-  namespace: test-keda
