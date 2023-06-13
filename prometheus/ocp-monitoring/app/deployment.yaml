@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: test-keda
-  name: test-keda
+    app: demo-app
+  name: demo-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-keda
+      app: demo-app
   template:
     metadata:
       labels:
-        app: test-keda
+        app: demo-app
         type: keda-testing
     spec:
       containers:
-      - name: prom-test-keda
+      - name: prom-demo-app
         image: quay.io/zroubalik/prometheus-app:latest
         imagePullPolicy: IfNotPresent
         securityContext:
@@ -32,10 +32,10 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: test-keda
+    app: demo-app
   annotations:
     prometheus.io/scrape: "true"
-  name: test-keda
+  name: demo-app
 spec:
   ports:
   - name: http
@@ -57,4 +57,4 @@ spec:
   namespaceSelector: {}
   selector:
     matchLabels:
-       app: test-keda
+       app: demo-app

@@ -5,8 +5,8 @@ metadata:
 spec:
   secretTargetRef:
   - parameter: bearerToken
-    name: thanos-token-7b8kg 
+    name: thanos-token-wzsrm
     key: token
   - parameter: ca
-    name: thanos-token-7b8kg
+    name: thanos-token-wzsrm
     key: ca.crt
